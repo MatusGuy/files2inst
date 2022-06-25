@@ -17,6 +17,15 @@
             "args": ["help"],
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "Export test (Python)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\test\\test.py",
+            "args": ["export"],
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }

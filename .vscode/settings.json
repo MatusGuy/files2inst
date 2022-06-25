@@ -1,6 +1,7 @@
 {
     "robloxLsp.diagnostics.globals": [
         "fs",
-        "rbxmk"
+        "rbxmk",
+        "sym"
     ]
 }
