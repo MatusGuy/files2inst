@@ -2,7 +2,8 @@ print("!ARGS CANNOT CONTAIN WHITESPACES, USE ; TO SEPERATE ARGS INSTEAD!")
 print("ARGS: "..(...))
 print("")
 
-local CONFIG_FILE = "src/config.json"
+local SRC_DIR = path.expand("$rsd").."/"
+local CONFIG_FILE = SRC_DIR.."config.json"
 local CONFIG = fs.read(CONFIG_FILE, "json")
 print("CONFIG:")
 for k,v in pairs(CONFIG) do
@@ -25,6 +26,6 @@ end
 local args = CloneTable(prg_args)
 table.remove(args, 1)
 
-local command_module = rbxmk.runFile(CONFIG.SRC_DIR..cmd..".lua")
+local command_module = rbxmk.runFile(SRC_DIR..cmd..".lua")
 
 command_module:Main(args, CONFIG)

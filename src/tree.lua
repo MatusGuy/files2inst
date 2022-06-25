@@ -29,7 +29,7 @@ function module:PrintChildren(instance, prefix, depth)
 end
 
 function module:Main(args, config)
-    local loaded = rbxmk.runFile(config.SRC_DIR.."funcs.lua"):ReadFile(args[1])
+    local loaded = rbxmk.runFile(path.expand("$rsd").."/funcs.lua"):ReadFile(args[1])
 
     module:PrintChildren(loaded)
 end

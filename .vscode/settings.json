@@ -2,6 +2,7 @@
     "robloxLsp.diagnostics.globals": [
         "fs",
         "rbxmk",
-        "sym"
+        "sym",
+        "path"
     ]
 }
