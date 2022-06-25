@@ -5,7 +5,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\test\\test.py",
-            "args": ["tree"],
+            "args": ["tree", "test/test.rbxm"],
             "console": "integratedTerminal",
             "justMyCode": true
         },
@@ -23,7 +23,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\test\\test.py",
-            "args": ["export"],
+            "args": ["export","test/test.rbxm","test/out/"],
             "console": "integratedTerminal",
             "justMyCode": true
         }
