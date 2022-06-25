@@ -6,7 +6,7 @@ local CONFIG = {
 }
 
 local args = string.split(...,";")
-local cmd = args[1]
+local cmd = args[1] or "help"
 local file = args[2]
 
 local command_module = rbxmk.runFile(CONFIG.SRC_DIR..cmd..".lua")
