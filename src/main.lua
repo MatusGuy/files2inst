@@ -1,5 +1,6 @@
 print("!ARGS CANNOT CONTAIN WHITESPACES, USE ; TO SEPERATE ARGS INSTEAD!")
 print("ARGS: "..(...))
+print("")
 
 local CONFIG = {
     ["SRC_DIR"] = "src/"

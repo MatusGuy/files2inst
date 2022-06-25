@@ -1,6 +1,7 @@
 local module = {}
 
-module.MSG = [[FILES2INST
+module.MSG = [[
+FILES2INST
 files2inst is a tool that creates an rbxm file from lua scripts and json files.
 
 Usage:

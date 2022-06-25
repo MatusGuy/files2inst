@@ -1,10 +1,20 @@
 {
     "configurations": [
         {
-            "name": "Main test (Python)",
+            "name": "Tree test (Python)",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\test\\test.py",
+            "args": ["tree"],
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Help test (Python)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\test\\test.py",
+            "args": ["help"],
             "console": "integratedTerminal",
             "justMyCode": true
         }
