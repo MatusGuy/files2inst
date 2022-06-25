@@ -23,7 +23,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\test\\test.py",
-            "args": ["export","test/test.rbxm","test/out/"],
+            "args": ["export","test/test.rbxm","test/"],
             "console": "integratedTerminal",
             "justMyCode": true
         }
