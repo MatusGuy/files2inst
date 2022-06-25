@@ -28,8 +28,8 @@ function module:PrintChildren(instance, prefix, depth)
     depth = 0
 end
 
-function module:Main(file, config)
-    local loaded = rbxmk.runFile(config.SRC_DIR.."funcs.lua"):ReadFile(file)
+function module:Main(args, config)
+    local loaded = rbxmk.runFile(config.SRC_DIR.."funcs.lua"):ReadFile(args[1])
 
     module:PrintChildren(loaded)
 end

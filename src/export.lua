@@ -1,7 +1,10 @@
 local module = {}
 
-function module:Main(file, config)
-    local instance = rbxmk.runFile(config.SRC_DIR.."funcs.lua"):ReadFile(file)
+function module:Main(args, config)
+    -- args[1] = input file
+    -- args[2] = output dir
+
+    local instance = rbxmk.runFile(config.SRC_DIR.."funcs.lua"):ReadFile(args[1])
     local out = {}
 
     local properties = instance[sym.Properties]
@@ -12,7 +15,7 @@ function module:Main(file, config)
         end
     end
 
-    fs.write("out.json", out, "json")
+    fs.write(args[2].."out.json", out, "json")
 end
 
 return module

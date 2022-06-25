@@ -10,10 +10,21 @@ for k,v in pairs(CONFIG) do
 end
 print("")
 
-local args = string.split(...,";")
-local cmd = args[1] or "help"
-local file = args[2]
+local prg_args = string.split(...,";")
+local cmd = prg_args[1] or "help"
+
+local function CloneTable(t)
+    local out = {}
+    for k,v in pairs(t) do
+        out[k] = v
+    end
+    return out
+end
+
+-- get args (and remove command arg)
+local args = CloneTable(prg_args)
+table.remove(args, 1)
 
 local command_module = rbxmk.runFile(CONFIG.SRC_DIR..cmd..".lua")
 
-command_module:Main(file, CONFIG)
+command_module:Main(args, CONFIG)
