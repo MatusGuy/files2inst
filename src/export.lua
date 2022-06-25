@@ -23,6 +23,7 @@ function module:ExportInstance(instance, outdir, exportChildren)
 
     local newpath = outdir..instance.Name
 
+    local outfile = newpath..".json"
     if #instance:GetChildren() > 0 and exportChildren then
         local childrenDir = newpath.."/"
         fs.mkdir(childrenDir)
@@ -30,9 +31,10 @@ function module:ExportInstance(instance, outdir, exportChildren)
         for _, child in ipairs(instance:GetChildren()) do
             module:ExportInstance(child, childrenDir)
         end
+        
+        outfile = childrenDir..instance.Name..".json"
     end
 
-    local outfile = newpath..".json"
     fs.write(outfile, out, "json")
 
     return out
