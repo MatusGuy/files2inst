@@ -18,10 +18,14 @@ Usage:
     rbxmk run main.lua command;[arguments];[options]
 
 Commands:
-    tree [file] - output all instances of a rbxm/rbxl file organized in a tree
-    - [file]    - target rbxm/rbxl file
+    tree file - output all instances of a roblox model file organized in a tree
+    - file    - target model file
 
     help        - output basic information about the program and how to use it
+
+    export file output_dir - export roblox model file organized in folders and json files
+    - file                 - target model file
+    - output_dir           - target export directory (where to put exported files in)
 
 About configuration:
 files2inst/src contains a file called config.json, where all the settings live on
