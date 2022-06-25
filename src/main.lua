@@ -12,4 +12,4 @@ local file = args[2]
 
 local command_module = rbxmk.runFile(CONFIG.SRC_DIR..cmd..".lua")
 
-command_module:Main(file)
+command_module:Main(file, CONFIG)

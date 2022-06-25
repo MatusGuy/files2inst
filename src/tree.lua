@@ -28,15 +28,8 @@ function module:PrintChildren(instance, prefix, depth)
     depth = 0
 end
 
--- autodetects file format, reads file and returns it
-function module:ReadFile(file)
-    local split  = string.split(file,".")
-    local format = split[#split]
-    return fs.read(file, format)
-end
-
-function module:Main(file)
-    local loaded = module:ReadFile(file)
+function module:Main(file, config)
+    local loaded = rbxmk.runFile(config.SRC_DIR.."funcs.lua"):ReadFile(file)
 
     module:PrintChildren(loaded)
 end
