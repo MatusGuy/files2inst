@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Main test (Python)",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\test\\test.py",
