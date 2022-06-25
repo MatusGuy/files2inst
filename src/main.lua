@@ -5,10 +5,12 @@ print("")
 local SRC_DIR = path.expand("$rsd").."/"
 local CONFIG_FILE = SRC_DIR.."config.json"
 local CONFIG = fs.read(CONFIG_FILE, "json")
-print("CONFIG:")
+print("CONFIG: <nothing>")
+--[[
 for k,v in pairs(CONFIG) do
     print(k..": "..v)
 end
+]]
 print("")
 
 local prg_args = string.split(...,";")
