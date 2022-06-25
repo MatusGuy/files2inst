@@ -26,6 +26,15 @@
             "args": ["export","test/test.rbxm","test/"],
             "console": "integratedTerminal",
             "justMyCode": true
+        },
+        {
+            "name": "Import test (Python)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}\\test\\test.py",
+            "args": ["import","test/test/","test/test.rbxm"],
+            "console": "integratedTerminal",
+            "justMyCode": true
         }
     ]
 }

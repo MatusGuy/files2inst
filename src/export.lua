@@ -20,6 +20,7 @@ function module:ExportInstance(instance, outdir, exportChildren)
             out[k] = v
         end
     end
+    out.ClassName = instance.ClassName
 
     local newpath = outdir..instance.Name
 
