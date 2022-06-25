@@ -5,14 +5,13 @@ FILES2INST
 files2inst is a tool that creates an rbxm file from lua scripts and json files.
 
 Usage:
-    rbxmk run main.lua command;[file];[options (seperated by semicolons)]
+    rbxmk run main.lua command;[arguments];[options]
 
 Commands:
-    tree - output all instances of a rbxm/rbxl file organized in a tree
-    help - output basic information about the program and how to use it
+    tree [file] - output all instances of a rbxm/rbxl file organized in a tree
+    - [file]    - target rbxm/rbxl file
 
-Arguments:
-    [file] - target file
+    help        - output basic information about the program and how to use it
 ]]
 
 function module:Main()
