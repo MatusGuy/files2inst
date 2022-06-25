@@ -1,5 +1,5 @@
 print("!ARGS CANNOT CONTAIN WHITESPACES, USE ; TO SEPERATE ARGS INSTEAD!")
-print("ARGS: "..(...))
+print("ARGS: "..(... or "<nothing>"))
 print("")
 
 local SRC_DIR = path.expand("$rsd").."/"
@@ -13,20 +13,24 @@ end
 ]]
 print("")
 
-local prg_args = string.split(...,";")
-local cmd = prg_args[1] or "help"
+local cmd = "help"
+local args = {}
+if ... then
+    local prg_args = string.split(...,";")
+    cmd = prg_args[1]
 
-local function CloneTable(t)
-    local out = {}
-    for k,v in pairs(t) do
-        out[k] = v
+    local function CloneTable(t)
+        local out = {}
+        for k,v in pairs(t) do
+            out[k] = v
+        end
+        return out
     end
-    return out
-end
 
--- get args (and remove command arg)
-local args = CloneTable(prg_args)
-table.remove(args, 1)
+    -- get args (and remove command arg)
+    args = CloneTable(prg_args)
+    table.remove(args, 1)
+end
 
 local command_module = rbxmk.runFile(SRC_DIR..cmd..".lua")
 
