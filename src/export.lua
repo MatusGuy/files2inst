@@ -1,16 +1,30 @@
 local module = {}
 
+local funcs = rbxmk.runFile(path.expand("$rsd").."/funcs.lua")
+
 function module:ExportInstance(instance, outdir, exportChildren)
     exportChildren = exportChildren or true
 
     local out = {}
 
     for k,v in pairs(instance[sym.Properties]) do
-        out[k] = v
+        if type(v) == "userdata" then
+            local convert = funcs.JSON_FC[typeof(v)]
+            
+            if convert then
+                out[k] = convert(v)
+            else
+                out[k] = string.format("files2inst WARN: could not convert %s to JSON type", typeof(v))
+            end
+        else
+            out[k] = v
+        end
     end
 
+    local newpath = outdir..instance.Name
+
     if #instance:GetChildren() > 0 and exportChildren then
-        local childrenDir = outdir..instance.Name.."/"
+        local childrenDir = newpath.."/"
         fs.mkdir(childrenDir)
 
         for _, child in ipairs(instance:GetChildren()) do
@@ -18,7 +32,7 @@ function module:ExportInstance(instance, outdir, exportChildren)
         end
     end
 
-    local outfile = outdir..instance.Name..".json"
+    local outfile = newpath..".json"
     fs.write(outfile, out, "json")
 
     return out
@@ -28,7 +42,7 @@ function module:Main(args, config)
     -- args[1] = input file
     -- args[2] = output dir
 
-    local instance = rbxmk.runFile(path.expand("$rsd").."/funcs.lua"):ReadFile(args[1])
+    local instance = funcs:ReadFile(args[1])
 
     local dir = args[2]..instance.Name.."/"
     fs.mkdir(dir)
