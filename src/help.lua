@@ -12,6 +12,10 @@ Commands:
     - [file]    - target rbxm/rbxl file
 
     help        - output basic information about the program and how to use it
+
+About configuration:
+files2inst/src contains a file called config.json, where all the settings live on:
+    "SRC_DIR": str - location to the program's source code directory
 ]]
 
 function module:Main()
