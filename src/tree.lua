@@ -1,27 +1,26 @@
 local module = {}
 
-function module:MultiplyString(str, exp)
-    for i = 1,exp,1 do
-        if i > 1 then
-            str = str..str
-        end
+function module:MultiplyString(str, n)
+    local resp = ""
+
+    for _ = 1,n,1 do
+        resp = resp..str
     end
-    return str
+    
+    return resp
 end
 
-local depth = 0 -- please don't change
-function module:PrintChildren(instance, prefix)
+function module:PrintChildren(instance, prefix, depth)
     prefix = prefix or ""
+    depth = depth or 0
 
     depth = depth + 1
     for _,v in ipairs(instance:GetChildren()) do
         print(prefix..v.Name)
 
-        local olddepth = depth
         if #v:GetChildren() > 0 then
-            module:PrintChildren(v, module:MultiplyString("-", depth))
+            module:PrintChildren(v, module:MultiplyString("-", depth), depth)
         end
-        depth = olddepth
     end
 
     depth = 0
