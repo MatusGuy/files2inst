@@ -1,7 +1,14 @@
-local file = ...
+print("!ARGS CANNOT CONTAIN WHITESPACES, USE ; TO SEPERATE ARGS INSTEAD!")
+print("ARGS: "..(...))
 
-local loaded = fs.read(file, "rbxm")
+local CONFIG = {
+    ["SRC_DIR"] = "src/"
+}
 
-for _,v in ipairs(loaded:GetChildren()) do
-    print(v)
-end
+local args = string.split(...,";")
+local cmd = args[1]
+local file = args[2]
+
+local command_module = rbxmk.runFile(CONFIG.SRC_DIR..cmd..".lua")
+
+command_module:Main(file)
