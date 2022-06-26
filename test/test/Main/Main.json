@@ -35,6 +35,7 @@
 	"CanQuery": true,
 	"CanTouch": true,
 	"CastShadow": true,
+	"ClassName": "Part",
 	"CollisionGroupId": 0,
 	"Color3uint8": "files2inst WARN: could not convert Color3uint8 to JSON type",
 	"FrontParamA": -0.5,

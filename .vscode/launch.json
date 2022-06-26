@@ -32,7 +32,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}\\test\\test.py",
-            "args": ["import","test/test/","test/test.rbxm"],
+            "args": ["import","test/test/Main/","test/importtest.rbxmx"],
             "console": "integratedTerminal",
             "justMyCode": true
         }
