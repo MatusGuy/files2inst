@@ -121,6 +121,41 @@ module.JSON_FC.EXPORT.float  = module.JSON_FC.EXPORT.Intlike
 module.JSON_FC.EXPORT.token  = module.JSON_FC.EXPORT.Intlike
 module.JSON_FC.EXPORT.double = module.JSON_FC.EXPORT.Intlike
 
+module.JSON_FC.IMPORT.BrickColor = function(bc)
+    return BrickColor.new(string.gsub(bc,"(BrickColor) ",""))
+end
+module.JSON_FC.IMPORT.CFrame = function(cf)
+    return CFrame.fromMatrix(cf.Position, cf.XVector, cf.YVector, cf.ZVector)
+end
+module.JSON_FC.IMPORT.ColorSequenceKeypoint = function(csk)
+    return ColorSequenceKeypoint.new(csk.Time, csk.Color)
+end
+module.JSON_FC.IMPORT.ColorSequence = function(cs)
+    local keypoints = {}
+    for i,keypoint in ipairs(cs) do
+        ---@diagnostic disable-next-line: redundant-parameter
+        keypoints[i] = module.JSON_FC.IMPORT:ColorSequenceKeypoint(keypoint)
+    end
+    return ColorSequence.new(keypoints)
+end
+module.JSON_FC.IMPORT.EnumItem = function(ei)
+    local keys = string.split(ei, ".")
+    return Enum[keys[2]][keys[1]]
+end
+module.JSON_FC.IMPORT.Instance = function(i)
+    local instance = Instance.new(i.ClassName)
+    for k,v in pairs(i) do
+        instance[k] = v
+    end
+    return instance
+end
+module.JSON_FC.IMPORT.UDim = function(ud)
+    return UDim.new(ud.Scale, ud.Offset)
+end
+module.JSON_FC.IMPORT.UDim2 = function(ud2)
+    return UDim2.new(ud2.X.Scale, ud2.X.Offset, ud2.Y.Scale, ud2.Y.Offset)
+end
+
 -- displayed when user tries to run "rbxmk run main.lua funcs"
 module.MSG = [[
 funcs is a module with various functions globaly used by files2inst commands.
