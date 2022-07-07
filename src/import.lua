@@ -4,8 +4,12 @@ function module:LoadJsonInstance(json)
     local data = fs.read(json, "json")
 
     local instance = Instance.new(data.ClassName)
-    for field, property in pairs(instance[sym.Properties]) do
-        instance[field] = property
+    for field, property in pairs(data) do
+        if type(property) == "table" then
+            instance[field] = tostring(property)
+        else
+            instance[field] = property
+        end
     end
     
     return instance
@@ -37,7 +41,8 @@ function module:Main(args, config)
     -- args[1] - input dir
     -- args[2] - output model file
 
-    local instance = module:LoadJsonInstance(args[1]..path.split(args[1], "fstem")..".json")
+    local mainFile = args[1]..path.split(args[1], "fstem")..".json"
+    local instance = module:LoadJsonInstance(mainFile)
     fs.write(args[2], instance, "rbxmx")
 end
 

@@ -1,7 +1,57 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Part" referent="RBX2AE17CCFDCA2424698E98BB01D6C6AB9">
-		<Properties></Properties>
+	<Item class="Part" referent="RBXA86B9148FC3B41C7B5F74E5FA5E293B1">
+		<Properties>
+			<bool name="Anchored">false</bool>
+			<string name="AttributesSerialize"></string>
+			<double name="BackParamA">-0.5</double>
+			<double name="BackParamB">0.5</double>
+			<double name="BackSurface">0</double>
+			<double name="BackSurfaceInput">0</double>
+			<double name="BottomParamA">-0.5</double>
+			<double name="BottomParamB">0.5</double>
+			<double name="BottomSurface">0</double>
+			<double name="BottomSurfaceInput">0</double>
+			<string name="CFrame">table: 0xc000301860</string>
+			<bool name="CanCollide">true</bool>
+			<bool name="CanQuery">true</bool>
+			<bool name="CanTouch">true</bool>
+			<bool name="CastShadow">true</bool>
+			<double name="CollisionGroupId">0</double>
+			<string name="Color3uint8">files2inst WARN: could not convert Color3uint8 to JSON type</string>
+			<double name="FrontParamA">-0.5</double>
+			<double name="FrontParamB">0.5</double>
+			<double name="FrontSurface">0</double>
+			<double name="FrontSurfaceInput">0</double>
+			<double name="LeftParamA">-0.5</double>
+			<double name="LeftParamB">0.5</double>
+			<double name="LeftSurface">0</double>
+			<double name="LeftSurfaceInput">0</double>
+			<bool name="Locked">false</bool>
+			<bool name="Massless">false</bool>
+			<double name="Material">256</double>
+			<string name="MaterialVariantSerialized"></string>
+			<string name="Name">Main</string>
+			<string name="PivotOffset">table: 0xc000301620</string>
+			<double name="Reflectance">0</double>
+			<double name="RightParamA">-0.5</double>
+			<double name="RightParamB">0.5</double>
+			<double name="RightSurface">0</double>
+			<double name="RightSurfaceInput">0</double>
+			<double name="RootPriority">0</double>
+			<string name="RotVelocity">table: 0xc000301a40</string>
+			<double name="SourceAssetId">-1</double>
+			<string name="Tags"></string>
+			<double name="TopParamA">-0.5</double>
+			<double name="TopParamB">0.5</double>
+			<double name="TopSurface">0</double>
+			<double name="TopSurfaceInput">0</double>
+			<double name="Transparency">0</double>
+			<string name="Velocity">table: 0xc000301800</string>
+			<double name="formFactorRaw">1</double>
+			<double name="shape">1</double>
+			<string name="size">table: 0xc000301aa0</string>
+		</Properties>
 	</Item>
 </roblox>
