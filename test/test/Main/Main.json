@@ -13,23 +13,28 @@
 		"Position": {
 			"X": -6.199999809265137,
 			"Y": 0.5000039935112,
-			"Z": -11.550000190734863
+			"Z": -11.550000190734863,
+			"_Type": "Vector3"
 		},
 		"XVector": {
 			"X": -1,
 			"Y": -0,
-			"Z": -0
+			"Z": -0,
+			"_Type": "Vector3"
 		},
 		"YVector": {
 			"X": -0,
 			"Y": -1,
-			"Z": -0
+			"Z": -0,
+			"_Type": "Vector3"
 		},
 		"ZVector": {
 			"X": -0,
 			"Y": -0,
-			"Z": -1
-		}
+			"Z": -1,
+			"_Type": "Vector3"
+		},
+		"_Type": "CFrame"
 	},
 	"CanCollide": true,
 	"CanQuery": true,
@@ -55,23 +60,28 @@
 		"Position": {
 			"X": 0,
 			"Y": 0,
-			"Z": 0
+			"Z": 0,
+			"_Type": "Vector3"
 		},
 		"XVector": {
 			"X": -1,
 			"Y": -0,
-			"Z": -0
+			"Z": -0,
+			"_Type": "Vector3"
 		},
 		"YVector": {
 			"X": -0,
 			"Y": -1,
-			"Z": -0
+			"Z": -0,
+			"_Type": "Vector3"
 		},
 		"ZVector": {
 			"X": -0,
 			"Y": -0,
-			"Z": -1
-		}
+			"Z": -1,
+			"_Type": "Vector3"
+		},
+		"_Type": "CFrame"
 	},
 	"Reflectance": 0,
 	"RightParamA": -0.5,
@@ -82,7 +92,8 @@
 	"RotVelocity": {
 		"X": 0,
 		"Y": 0,
-		"Z": 0
+		"Z": 0,
+		"_Type": "Vector3"
 	},
 	"SourceAssetId": -1,
 	"Tags": "",
@@ -94,13 +105,15 @@
 	"Velocity": {
 		"X": 0,
 		"Y": 0,
-		"Z": 0
+		"Z": 0,
+		"_Type": "Vector3"
 	},
 	"formFactorRaw": 1,
 	"shape": 1,
 	"size": {
 		"X": 4,
 		"Y": 1,
-		"Z": 2
+		"Z": 2,
+		"_Type": "Vector3"
 	}
 }

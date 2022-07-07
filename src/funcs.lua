@@ -139,7 +139,12 @@ module.JSON_FC.IMPORT.BrickColor = function(bc)
     return BrickColor.new(string.gsub(bc,"(BrickColor) ",""))
 end
 module.JSON_FC.IMPORT.CFrame = function(cf)
-    return CFrame.fromMatrix(cf.Position, cf.XVector, cf.YVector, cf.ZVector)
+    return CFrame.fromMatrix(
+        module.JSON_FC.IMPORT.Vector3(cf.Position),
+        module.JSON_FC.IMPORT.Vector3(cf.XVector),
+        module.JSON_FC.IMPORT.Vector3(cf.YVector),
+        module.JSON_FC.IMPORT.Vector3(cf.ZVector)
+    )
 end
 module.JSON_FC.IMPORT.ColorSequenceKeypoint = function(csk)
     return ColorSequenceKeypoint.new(csk.Time, csk.Color)
@@ -179,6 +184,14 @@ module.JSON_FC.IMPORT.UDim = function(ud)
 end
 module.JSON_FC.IMPORT.UDim2 = function(ud2)
     return UDim2.new(ud2.X.Scale, ud2.X.Offset, ud2.Y.Scale, ud2.Y.Offset)
+end
+
+module.JSON_FC.IMPORT.Vector2 = function(v2)
+    return Vector2.new(v2.X, v2.Y)
+end
+
+module.JSON_FC.IMPORT.Vector3 = function(v3)
+    return Vector3.new(v3.X, v3.Y, v3.Z)
 end
 
 -- displayed when user tries to run "rbxmk run main.lua funcs"

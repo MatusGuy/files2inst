@@ -9,7 +9,7 @@ function module:ExportInstance(instance, outdir, exportChildren)
 
     for k,v in pairs(instance[sym.Properties]) do
         if type(v) == "userdata" then
-            local convert = funcs.JSON_FC[typeof(v)]
+            local convert = funcs.JSON_FC.EXPORT[typeof(v)]
             
             if convert then
                 out[k] = convert(v)

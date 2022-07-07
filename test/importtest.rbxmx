@@ -1,7 +1,7 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Part" referent="RBXA86B9148FC3B41C7B5F74E5FA5E293B1">
+	<Item class="Part" referent="RBX3097EF7B75F24165B9E6C9756FE2C5CA">
 		<Properties>
 			<bool name="Anchored">false</bool>
 			<string name="AttributesSerialize"></string>
@@ -13,7 +13,20 @@
 			<double name="BottomParamB">0.5</double>
 			<double name="BottomSurface">0</double>
 			<double name="BottomSurfaceInput">0</double>
-			<string name="CFrame">table: 0xc000301860</string>
+			<CoordinateFrame name="CFrame">
+				<X>-6.19999981</X>
+				<Y>0.500003994</Y>
+				<Z>-11.5500002</Z>
+				<R00>-1</R00>
+				<R01>-0</R01>
+				<R02>-0</R02>
+				<R10>-0</R10>
+				<R11>-1</R11>
+				<R12>-0</R12>
+				<R20>-0</R20>
+				<R21>-0</R21>
+				<R22>-1</R22>
+			</CoordinateFrame>
 			<bool name="CanCollide">true</bool>
 			<bool name="CanQuery">true</bool>
 			<bool name="CanTouch">true</bool>
@@ -33,14 +46,31 @@
 			<double name="Material">256</double>
 			<string name="MaterialVariantSerialized"></string>
 			<string name="Name">Main</string>
-			<string name="PivotOffset">table: 0xc000301620</string>
+			<CoordinateFrame name="PivotOffset">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>-1</R00>
+				<R01>-0</R01>
+				<R02>-0</R02>
+				<R10>-0</R10>
+				<R11>-1</R11>
+				<R12>-0</R12>
+				<R20>-0</R20>
+				<R21>-0</R21>
+				<R22>-1</R22>
+			</CoordinateFrame>
 			<double name="Reflectance">0</double>
 			<double name="RightParamA">-0.5</double>
 			<double name="RightParamB">0.5</double>
 			<double name="RightSurface">0</double>
 			<double name="RightSurfaceInput">0</double>
 			<double name="RootPriority">0</double>
-			<string name="RotVelocity">table: 0xc000301a40</string>
+			<Vector3 name="RotVelocity">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
 			<double name="SourceAssetId">-1</double>
 			<string name="Tags"></string>
 			<double name="TopParamA">-0.5</double>
@@ -48,10 +78,18 @@
 			<double name="TopSurface">0</double>
 			<double name="TopSurfaceInput">0</double>
 			<double name="Transparency">0</double>
-			<string name="Velocity">table: 0xc000301800</string>
+			<Vector3 name="Velocity">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
 			<double name="formFactorRaw">1</double>
 			<double name="shape">1</double>
-			<string name="size">table: 0xc000301aa0</string>
+			<Vector3 name="size">
+				<X>4</X>
+				<Y>1</Y>
+				<Z>2</Z>
+			</Vector3>
 		</Properties>
 	</Item>
 </roblox>
