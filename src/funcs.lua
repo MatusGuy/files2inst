@@ -14,6 +14,7 @@ module.JSON_FC = {
 }
 module.JSON_FC.EXPORT.Axes = function(a)
     return {
+        _Type = "Axes",
         X = a.X,
         Y = a.Y,
         Z = a.Z,
@@ -30,6 +31,7 @@ module.JSON_FC.EXPORT.BrickColor = function(bc)
 end
 module.JSON_FC.EXPORT.Color3 = function(c)
     return {
+        _Type = "Color3",
         R = c.R,
         B = c.B,
         G = c.G
@@ -40,6 +42,7 @@ module.JSON_FC.EXPORT.Instance = function(i)
 end
 module.JSON_FC.EXPORT.Vector3 = function(v)
     return {
+        _Type = "Vector3",
         X = v.X,
         Y = v.Y,
         Z = v.Z
@@ -47,30 +50,38 @@ module.JSON_FC.EXPORT.Vector3 = function(v)
 end
 module.JSON_FC.EXPORT.CFrame = function(cf)
     return {
+        _Type = "CFrame",
         Position = module.JSON_FC.EXPORT.Vector3(cf.Position),
         XVector  = module.JSON_FC.EXPORT.Vector3(cf.XVector),
         YVector  = module.JSON_FC.EXPORT.Vector3(cf.YVector),
         ZVector  = module.JSON_FC.EXPORT.Vector3(cf.ZVector),
     }
 end
-module.JSON_FC.EXPORT.ColorSequenceKeypoint = function(csk)
+module.JSON_FC.EXPORT.SequenceKeypoint = function(csk, _type)
     return {
+        --_Type = _type,
         Time = csk.Time,
         Value = csk.Value
     }
 end
-module.JSON_FC.EXPORT.ColorSequence = function(cs)
-    local kps = {}
+module.JSON_FC.EXPORT.ColorSequence = function(cs, _type)
+    _type = _type or "ColorSequence"
+
+    local kps = {_Type = _type,}
     for _,kp in ipairs(cs.Keypoints) do
-        table.insert(kps, module.JSON_FC.EXPORT.ColorSequenceKeypoint(kp))
+        table.insert(kps, module.JSON_FC.EXPORT.SequenceKeypoint(kp, _type.."Keypoint"))
     end
     return kps
+end
+module.JSON_FC.EXPORT.NumberSequence = function(ns)
+    module.JSON_FC.EXPORT.ColorSequence(ns,"NumberSequence")
 end
 module.JSON_FC.EXPORT.EnumItem = function(ei)
     return string.format("Enum.%s.%s",ei.EnumType,ei.Name)
 end
 module.JSON_FC.EXPORT.Faces = function(f)
     return {
+        _Type = "Faces",
         Top = f.Top,
         Bottom = f.Bottom,
         Left = f.Left,
@@ -81,25 +92,28 @@ module.JSON_FC.EXPORT.Faces = function(f)
 end
 module.JSON_FC.EXPORT.NumberRange = function(nr)
     return {
+        _Type = "NumberRange",
         Min = nr.Min,
         Max = nr.Max
     }
 end
-module.JSON_FC.EXPORT.NumberSequence = module.JSON_FC.EXPORT.ColorSequence
 module.JSON_FC.EXPORT.UDim = function(ud)
     return {
+        _Type = "UDim",
         Scale = ud.Scale,
         Offset = ud.Offset
     }
 end
 module.JSON_FC.EXPORT.UDim2 = function(ud2)
     return {
+        _Type = "UDim2",
         X = module.JSON_FC.EXPORT.UDim(ud2.X),
         Y = module.JSON_FC.EXPORT.UDim(ud2.Y),
     }
 end
 module.JSON_FC.EXPORT.Vector2 = function(v)
     return {
+        _Type = "Vector2",
         X = v.X,
         Y = v.Y
     }
@@ -137,6 +151,17 @@ module.JSON_FC.IMPORT.ColorSequence = function(cs)
         keypoints[i] = module.JSON_FC.IMPORT:ColorSequenceKeypoint(keypoint)
     end
     return ColorSequence.new(keypoints)
+end
+module.JSON_FC.IMPORT.NumberSequenceKeypoint = function(nsk)
+    return NumberSequenceKeypoint.new(nsk.Time, nsk.Color)
+end
+module.JSON_FC.IMPORT.NumberSequence = function(ns)
+    local keypoints = {}
+    for i,keypoint in ipairs(ns) do
+        ---@diagnostic disable-next-line: redundant-parameter
+        keypoints[i] = module.JSON_FC.IMPORT:NumberSequenceKeypoint(keypoint)
+    end
+    return NumberSequence.new(keypoints)
 end
 module.JSON_FC.IMPORT.EnumItem = function(ei)
     local keys = string.split(ei, ".")
