@@ -1,0 +1,75 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Part" referent="RBX671B9D8E1C5B40EA8B4487BDEB08D736">
+		<Properties>
+			<bool name="Anchored">false</bool>
+			<string name="AttributesSerialize"></string>
+			<double name="BackParamA">-0.5</double>
+			<double name="BackParamB">0.5</double>
+			<double name="BottomParamA">-0.5</double>
+			<double name="BottomParamB">0.5</double>
+			<CoordinateFrame name="CFrame">
+				<X>0</X>
+				<Y>1.70000196</Y>
+				<Z>-4.25</Z>
+				<R00>1</R00>
+				<R01>-0</R01>
+				<R02>-0</R02>
+				<R10>-0</R10>
+				<R11>1</R11>
+				<R12>-0</R12>
+				<R20>-0</R20>
+				<R21>-0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<bool name="CanCollide">true</bool>
+			<bool name="CanQuery">true</bool>
+			<bool name="CanTouch">true</bool>
+			<bool name="CastShadow">true</bool>
+			<string name="Color3uint8">files2inst WARN: could not convert Color3uint8 to JSON type</string>
+			<double name="FrontParamA">-0.5</double>
+			<double name="FrontParamB">0.5</double>
+			<double name="LeftParamA">-0.5</double>
+			<double name="LeftParamB">0.5</double>
+			<bool name="Locked">false</bool>
+			<bool name="Massless">false</bool>
+			<string name="MaterialVariantSerialized"></string>
+			<string name="Name">Main</string>
+			<CoordinateFrame name="PivotOffset">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+				<R00>1</R00>
+				<R01>-0</R01>
+				<R02>-0</R02>
+				<R10>-0</R10>
+				<R11>1</R11>
+				<R12>-0</R12>
+				<R20>-0</R20>
+				<R21>-0</R21>
+				<R22>1</R22>
+			</CoordinateFrame>
+			<double name="RightParamA">-0.5</double>
+			<double name="RightParamB">0.5</double>
+			<Vector3 name="RotVelocity">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
+			<string name="Tags"></string>
+			<double name="TopParamA">-0.5</double>
+			<double name="TopParamB">0.5</double>
+			<Vector3 name="Velocity">
+				<X>0</X>
+				<Y>0</Y>
+				<Z>0</Z>
+			</Vector3>
+			<Vector3 name="size">
+				<X>4</X>
+				<Y>1</Y>
+				<Z>2</Z>
+			</Vector3>
+		</Properties>
+	</Item>
+</roblox>

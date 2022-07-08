@@ -13,21 +13,21 @@
 			"_Type": "Vector3"
 		},
 		"XVector": {
-			"X": -1,
+			"X": 1,
 			"Y": -0,
 			"Z": -0,
 			"_Type": "Vector3"
 		},
 		"YVector": {
 			"X": -0,
-			"Y": -1,
+			"Y": 1,
 			"Z": -0,
 			"_Type": "Vector3"
 		},
 		"ZVector": {
 			"X": -0,
 			"Y": -0,
-			"Z": -1,
+			"Z": 1,
 			"_Type": "Vector3"
 		},
 		"_Type": "CFrame"
@@ -54,21 +54,21 @@
 			"_Type": "Vector3"
 		},
 		"XVector": {
-			"X": -1,
+			"X": 1,
 			"Y": -0,
 			"Z": -0,
 			"_Type": "Vector3"
 		},
 		"YVector": {
 			"X": -0,
-			"Y": -1,
+			"Y": 1,
 			"Z": -0,
 			"_Type": "Vector3"
 		},
 		"ZVector": {
 			"X": -0,
 			"Y": -0,
-			"Z": -1,
+			"Z": 1,
 			"_Type": "Vector3"
 		},
 		"_Type": "CFrame"

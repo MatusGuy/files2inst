@@ -49,13 +49,30 @@ module.JSON_FC.EXPORT.Vector3 = function(v)
         Z = v.Z
     }
 end
+
+-- also exports vector3
+function module.FixCFrameMatrix(v3, fixNegatives)
+    fixNegatives = fixNegatives or true
+
+    local matrix = module.JSON_FC.EXPORT.Vector3(v3)
+
+    if fixNegatives then
+        for k, v in pairs(matrix) do
+            if k~="_Type" and v<0 then
+                matrix[k] = -v
+            end
+        end
+    end
+
+    return matrix
+end
 module.JSON_FC.EXPORT.CFrame = function(cf)
     return {
         _Type = "CFrame",
         Position = module.JSON_FC.EXPORT.Vector3(cf.Position),
-        XVector  = module.JSON_FC.EXPORT.Vector3(cf.XVector),
-        YVector  = module.JSON_FC.EXPORT.Vector3(cf.YVector),
-        ZVector  = module.JSON_FC.EXPORT.Vector3(cf.ZVector),
+        XVector  = module.FixCFrameMatrix(cf.XVector),
+        YVector  = module.FixCFrameMatrix(cf.YVector),
+        ZVector  = module.FixCFrameMatrix(cf.ZVector),
     }
 end
 module.JSON_FC.EXPORT.SequenceKeypoint = function(csk, _type)
