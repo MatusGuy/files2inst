@@ -6,6 +6,5 @@
 	"Name": "Script",
 	"ScriptGuid": "{E3EA8279-AC6D-42A3-AEDC-1A771C673AC1}",
 	"Source": "print(\"Hello world!\")\n",
-	"SourceAssetId": -1,
 	"Tags": ""
 }

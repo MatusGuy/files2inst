@@ -2,6 +2,7 @@ local module = {}
 
 -- autodetects file format, reads file and returns it
 function module:ReadFile(file)
+    print("Reading file extension of: "..file)
     local split  = string.split(file,".")
     local format = split[#split]
     return fs.read(file, format)
@@ -119,11 +120,14 @@ module.JSON_FC.EXPORT.Vector2 = function(v)
     }
 end
 
--- convert intlike to string, parse it and then convert it to number and return that number
+-- all weird types make it easy for me to get the value by converting the value to a string and then parse it
+module.JSON_FC.EXPORT.WeirdType = function(wt)
+    return string.gsub(tostring(wt), typeof(wt)..": ", "")
+end
+
+-- convert weirdtype to number, that's it
 module.JSON_FC.EXPORT.Intlike = function(il)
-    local str = tostring(il)
-    local str_num = string.gsub(str, typeof(il)..": ", "")
-    return tonumber(str_num)
+    return tonumber(module.JSON_FC.EXPORT.WeirdType(il))
 end
 
 
@@ -134,6 +138,12 @@ module.JSON_FC.EXPORT.int64  = module.JSON_FC.EXPORT.Intlike
 module.JSON_FC.EXPORT.float  = module.JSON_FC.EXPORT.Intlike
 module.JSON_FC.EXPORT.token  = module.JSON_FC.EXPORT.Intlike
 module.JSON_FC.EXPORT.double = module.JSON_FC.EXPORT.Intlike
+
+-- it was all sunflowers after i dealt with intlikes until i discovered BinaryString, ProtectedString and Content exist
+
+module.JSON_FC.EXPORT.BinaryString    = module.JSON_FC.EXPORT.WeirdType
+module.JSON_FC.EXPORT.ProtectedString = module.JSON_FC.EXPORT.WeirdType
+module.JSON_FC.EXPORT.Content         = module.JSON_FC.EXPORT.WeirdType
 
 module.JSON_FC.IMPORT.BrickColor = function(bc)
     return BrickColor.new(string.gsub(bc,"(BrickColor) ",""))

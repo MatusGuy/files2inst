@@ -38,7 +38,7 @@ function module:Import(dir, out, parent)
     end
 
     if not parent then
-        fs.write(out, instance, "rbxm")
+        fs.write(out, instance, "rbxmx")
     end
     
     return instance
@@ -50,7 +50,7 @@ function module:Main(args, config)
 
     local mainFile = args[1]..path.split(args[1], "fstem")..".json"
     local instance = module:LoadJsonInstance(mainFile)
-    fs.write(args[2], instance, "rbxm")
+    fs.write(args[2], instance, "rbxmx")
 end
 
 return module
