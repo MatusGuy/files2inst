@@ -1,7 +1,7 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Part" referent="RBXE3112EFC314D4AECB579CB62B6A0513E">
+	<Item class="Part" referent="RBXEAF1AFF8E1844B6BB380906E804C7FBC">
 		<Properties>
 			<bool name="Anchored">false</bool>
 			<string name="AttributesSerialize"></string>
@@ -87,5 +87,46 @@
 				<Z>2</Z>
 			</Vector3>
 		</Properties>
+		<Item class="Folder" referent="RBXB74BD577137546C2AFD974E039F31B12">
+			<Properties>
+				<string name="AttributesSerialize"></string>
+				<string name="Name">two</string>
+				<string name="Tags"></string>
+			</Properties>
+			<Item class="Configuration" referent="RBX3D478121B2234D4392F1FE79B2BBB1D4">
+				<Properties>
+					<string name="AttributesSerialize"></string>
+					<string name="Name">Configuration</string>
+					<string name="Tags"></string>
+				</Properties>
+				<Item class="NumberValue" referent="RBX668C889F15D64541AC72DAFCACB5EB17">
+					<Properties>
+						<string name="AttributesSerialize"></string>
+						<string name="Name">Value</string>
+						<string name="Tags"></string>
+						<double name="Value">0</double>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+		<Item class="Folder" referent="RBX37996ADF7B93438BB3F3E4BEDD0D7DB8">
+			<Properties>
+				<string name="AttributesSerialize"></string>
+				<string name="Name">wone</string>
+				<string name="Tags"></string>
+			</Properties>
+			<Item class="Script" referent="RBX41570FD3919940EC9AE711334B49DB2B">
+				<Properties>
+					<string name="AttributesSerialize"></string>
+					<bool name="Disabled">false</bool>
+					<string name="LinkedSource"></string>
+					<string name="Name">Script</string>
+					<string name="ScriptGuid">{E3EA8279-AC6D-42A3-AEDC-1A771C673AC1}</string>
+					<string name="Source">print(&quot;Hello world!&quot;)
+</string>
+					<string name="Tags"></string>
+				</Properties>
+			</Item>
+		</Item>
 	</Item>
 </roblox>

@@ -22,35 +22,41 @@ function module:LoadJsonInstance(json)
     return instance
 end
 
-function module:Import(dir, out, parent)
+function module:Import(dir, out)
+    print("read "..dir)
+
     local content = fs.dir(dir)
 
-    local instance
+    local parentjson = dir..path.split(dir, "base")..".json"
+    local parent = module:LoadJsonInstance(parentjson)
     for i, childpath in ipairs(content) do
-        local pathname = childpath.Name
-        if not childpath.IsDir then
-            instance = module:LoadJsonInstance(pathname)
+        local pathname = dir..childpath.Name
+
+        -- if childpath is not parent then
+        if path.split(childpath.Name, "fstem")~=parent.Name then
+
+            local instance
+            if not childpath.IsDir then
+                print("get "..pathname)
+                instance = module:LoadJsonInstance(pathname)
+            else
+                instance = module:Import(pathname.."/", out)
+            end
             instance.Parent = parent
-        else
-            local parentInstance = module:LoadJsonInstance(path.split(pathname, "base")..".json")
-            module:Import(pathname, out, parentInstance)
         end
     end
 
-    if not parent then
-        fs.write(out, instance, "rbxmx")
-    end
+    fs.write(out, parent, "rbxmx")
     
-    return instance
+    return parent
 end
 
 function module:Main(args, config)
     -- args[1] - input dir
     -- args[2] - output model file
 
-    local mainFile = args[1]..path.split(args[1], "fstem")..".json"
-    local instance = module:LoadJsonInstance(mainFile)
-    fs.write(args[2], instance, "rbxmx")
+    --local mainFile = args[1]..path.split(args[1], "fstem")..".json"
+    local instance = module:Import(args[1], args[2])
 end
 
 return module
