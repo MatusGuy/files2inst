@@ -23,9 +23,13 @@ Commands:
 
     help        - output basic information about the program and how to use it
 
-    export file output_dir - export roblox model file organized in folders and json files
-    - file                 - target model file
-    - output_dir           - target export directory (where to put exported files in)
+    export file out_dir - export roblox model file organized in folders and json files
+    - file              - target model file
+    - out_dir           - target export directory (where to put exported files in)
+
+    import dir out_file - import organized json roblox instances to roblox model file
+    - dir               - target json directory
+    - out_file          - file path to the output roblox model file
 
 About configuration:
 files2inst/src contains a file called config.json, where all the settings live on
