@@ -3,8 +3,12 @@
 	"AttributesSerialize": "",
 	"BackParamA": -0.5,
 	"BackParamB": 0.5,
+	"BackSurface": 0,
+	"BackSurfaceInput": 0,
 	"BottomParamA": -0.5,
 	"BottomParamB": 0.5,
+	"BottomSurface": 0,
+	"BottomSurfaceInput": 0,
 	"CFrame": {
 		"Position": {
 			"X": 0,
@@ -45,8 +49,12 @@
 	},
 	"FrontParamA": -0.5,
 	"FrontParamB": 0.5,
+	"FrontSurface": 0,
+	"FrontSurfaceInput": 0,
 	"LeftParamA": -0.5,
 	"LeftParamB": 0.5,
+	"LeftSurface": 0,
+	"LeftSurfaceInput": 0,
 	"Locked": false,
 	"Massless": false,
 	"MaterialVariantSerialized": "",
@@ -80,6 +88,8 @@
 	},
 	"RightParamA": -0.5,
 	"RightParamB": 0.5,
+	"RightSurface": 0,
+	"RightSurfaceInput": 0,
 	"RotVelocity": {
 		"X": 0,
 		"Y": 0,
@@ -89,6 +99,8 @@
 	"Tags": "",
 	"TopParamA": -0.5,
 	"TopParamB": 0.5,
+	"TopSurface": 0,
+	"TopSurfaceInput": 0,
 	"Velocity": {
 		"X": 0,
 		"Y": 0,

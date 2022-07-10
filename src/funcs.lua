@@ -235,6 +235,24 @@ module.JSON_FC.IMPORT.Vector3 = function(v3)
     return Vector3.new(v3.X, v3.Y, v3.Z)
 end
 
+-- force-fill these properties when exporting
+module.PROP_EXCEPTIONS = {}
+module.PROP_EXCEPTIONS.BasePart = {
+    BottomSurface = 0,
+    BottomSurfaceInput = 0,
+    BackSurface = 0,
+    BackSurfaceInput = 0,
+    FrontSurface = 0,
+    FrontSurfaceInput = 0,
+    TopSurface = 0,
+    TopSurfaceInput = 0,
+    LeftSurface = 0,
+    LeftSurfaceInput = 0,
+    RightSurface = 0,
+    RightSurfaceInput = 0,
+}
+module.PROP_EXCEPTIONS.Part = module.PROP_EXCEPTIONS.BasePart
+
 -- displayed when user tries to run "rbxmk run main.lua funcs"
 module.MSG = [[
 funcs is a module with various functions globaly used by files2inst commands.

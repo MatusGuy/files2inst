@@ -20,6 +20,9 @@ function module:ExportInstance(instance, outdir, exportChildren)
             out[k] = v
         end
     end
+    for k,v in pairs(funcs.PROP_EXCEPTIONS[instance.ClassName] or {}) do
+        out[k] = v
+    end
     out.ClassName = instance.ClassName
 
     local newpath = outdir..instance.Name

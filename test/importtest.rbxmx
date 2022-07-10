@@ -1,14 +1,18 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Part" referent="RBXDEF238328ECF4D5699056A7DDF4C9A0F">
+	<Item class="Part" referent="RBXE3112EFC314D4AECB579CB62B6A0513E">
 		<Properties>
 			<bool name="Anchored">false</bool>
 			<string name="AttributesSerialize"></string>
 			<double name="BackParamA">-0.5</double>
 			<double name="BackParamB">0.5</double>
+			<double name="BackSurface">0</double>
+			<double name="BackSurfaceInput">0</double>
 			<double name="BottomParamA">-0.5</double>
 			<double name="BottomParamB">0.5</double>
+			<double name="BottomSurface">0</double>
+			<double name="BottomSurfaceInput">0</double>
 			<CoordinateFrame name="CFrame">
 				<X>0</X>
 				<Y>1.70000196</Y>
@@ -34,8 +38,12 @@
 			</Color3>
 			<double name="FrontParamA">-0.5</double>
 			<double name="FrontParamB">0.5</double>
+			<double name="FrontSurface">0</double>
+			<double name="FrontSurfaceInput">0</double>
 			<double name="LeftParamA">-0.5</double>
 			<double name="LeftParamB">0.5</double>
+			<double name="LeftSurface">0</double>
+			<double name="LeftSurfaceInput">0</double>
 			<bool name="Locked">false</bool>
 			<bool name="Massless">false</bool>
 			<string name="MaterialVariantSerialized"></string>
@@ -56,6 +64,8 @@
 			</CoordinateFrame>
 			<double name="RightParamA">-0.5</double>
 			<double name="RightParamB">0.5</double>
+			<double name="RightSurface">0</double>
+			<double name="RightSurfaceInput">0</double>
 			<Vector3 name="RotVelocity">
 				<X>0</X>
 				<Y>0</Y>
@@ -64,6 +74,8 @@
 			<string name="Tags"></string>
 			<double name="TopParamA">-0.5</double>
 			<double name="TopParamB">0.5</double>
+			<double name="TopSurface">0</double>
+			<double name="TopSurfaceInput">0</double>
 			<Vector3 name="Velocity">
 				<X>0</X>
 				<Y>0</Y>
