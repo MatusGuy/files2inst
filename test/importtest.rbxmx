@@ -1,7 +1,7 @@
 <roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
 	<External>null</External>
 	<External>nil</External>
-	<Item class="Part" referent="RBX671B9D8E1C5B40EA8B4487BDEB08D736">
+	<Item class="Part" referent="RBXDEF238328ECF4D5699056A7DDF4C9A0F">
 		<Properties>
 			<bool name="Anchored">false</bool>
 			<string name="AttributesSerialize"></string>
@@ -27,7 +27,11 @@
 			<bool name="CanQuery">true</bool>
 			<bool name="CanTouch">true</bool>
 			<bool name="CastShadow">true</bool>
-			<string name="Color3uint8">files2inst WARN: could not convert Color3uint8 to JSON type</string>
+			<Color3 name="Color3uint8">
+				<R>255</R>
+				<G>0</G>
+				<B>0</B>
+			</Color3>
 			<double name="FrontParamA">-0.5</double>
 			<double name="FrontParamB">0.5</double>
 			<double name="LeftParamA">-0.5</double>

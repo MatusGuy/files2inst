@@ -161,6 +161,17 @@ module.JSON_FC.EXPORT.double = module.JSON_FC.EXPORT.Intlike
 module.JSON_FC.EXPORT.BinaryString    = module.JSON_FC.EXPORT.WeirdType
 module.JSON_FC.EXPORT.ProtectedString = module.JSON_FC.EXPORT.WeirdType
 module.JSON_FC.EXPORT.Content         = module.JSON_FC.EXPORT.WeirdType
+module.JSON_FC.EXPORT.SharedString    = module.JSON_FC.EXPORT.WeirdType
+
+module.JSON_FC.EXPORT.Color3uint8 = function(c3ui8)
+    local strings = string.split(module.JSON_FC.EXPORT.WeirdType(c3ui8), ", ")
+    return {
+        _Type = "Color3", -- desguised as Color3, rbxmk does the encoding work :)
+        R = tonumber(strings[1])*255,
+        G = tonumber(strings[2])*255,
+        B = tonumber(strings[3])*255
+    }
+end
 
 module.JSON_FC.IMPORT.BrickColor = function(bc)
     return BrickColor.new(string.gsub(bc,"(BrickColor) ",""))
@@ -173,6 +184,9 @@ module.JSON_FC.IMPORT.CFrame = function(cf)
         module.JSON_FC.IMPORT.Vector3(cf.ZVector)
     )
 end
+module.JSON_FC.IMPORT.Color3 = function(c3)
+    return Color3.new(c3.R, c3.G, c3.B)
+end
 module.JSON_FC.IMPORT.ColorSequenceKeypoint = function(csk)
     return ColorSequenceKeypoint.new(csk.Time, csk.Color)
 end
@@ -180,7 +194,7 @@ module.JSON_FC.IMPORT.ColorSequence = function(cs)
     local keypoints = {}
     for i,keypoint in ipairs(cs) do
         ---@diagnostic disable-next-line: redundant-parameter
-        keypoints[i] = module.JSON_FC.IMPORT:ColorSequenceKeypoint(keypoint)
+        keypoints[i] = module.JSON_FC.IMPORT.ColorSequenceKeypoint(keypoint)
     end
     return ColorSequence.new(keypoints)
 end
@@ -191,7 +205,7 @@ module.JSON_FC.IMPORT.NumberSequence = function(ns)
     local keypoints = {}
     for i,keypoint in ipairs(ns) do
         ---@diagnostic disable-next-line: redundant-parameter
-        keypoints[i] = module.JSON_FC.IMPORT:NumberSequenceKeypoint(keypoint)
+        keypoints[i] = module.JSON_FC.IMPORT.NumberSequenceKeypoint(keypoint)
     end
     return NumberSequence.new(keypoints)
 end

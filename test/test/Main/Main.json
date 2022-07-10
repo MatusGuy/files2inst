@@ -37,7 +37,12 @@
 	"CanTouch": true,
 	"CastShadow": true,
 	"ClassName": "Part",
-	"Color3uint8": "files2inst WARN: could not convert Color3uint8 to JSON type",
+	"Color3uint8": {
+		"B": 0,
+		"G": 0,
+		"R": 255,
+		"_Type": "Color3"
+	},
 	"FrontParamA": -0.5,
 	"FrontParamB": 0.5,
 	"LeftParamA": -0.5,
