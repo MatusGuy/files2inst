@@ -22,6 +22,18 @@ function module:LoadJsonInstance(json)
     return instance
 end
 
+function module:GetFileWithSameName(dir,ext)
+    return dir..path.split(dir, "base")..ext
+end
+
+function module:GetMainFile(dir)
+    local resp = dir..path.split(dir, "stem")..".lua"
+    if not fs.stat(resp) then
+        resp = dir..path.split(dir, "base")..".json"
+    end
+    return resp
+end
+
 function module:Import(dir, out)
     print("read "..dir)
 
