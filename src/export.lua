@@ -2,15 +2,13 @@ local module = {}
 
 local funcs = rbxmk.runFile(path.expand("$rsd").."/funcs.lua")
 
-function module:ExportInstance(instance, outdir, exportChildren)
-    exportChildren = exportChildren or true
-
+function module:ToTable(instance)
     local out = {}
 
     for k,v in pairs(instance[sym.Properties]) do
         if type(v) == "userdata" then
             local convert = funcs.JSON_FC.EXPORT[typeof(v)]
-            
+
             if convert then
                 out[k] = convert(v)
             else
@@ -23,12 +21,38 @@ function module:ExportInstance(instance, outdir, exportChildren)
     for k,v in pairs(funcs.PROP_EXCEPTIONS[instance.ClassName] or {}) do
         out[k] = v
     end
-    out.ClassName = instance.ClassName
+
+    return out
+end
+
+function module:_ToScript(script,out)
+    local outpath = out..(funcs.SCRIPT_EXTS[script.ClassName] or ".lua")
+    fs.write(outpath, script.Source, "txt")
+    return outpath
+end
+
+function module:ExportInstance(instance, outdir, exportChildren)
+    exportChildren = exportChildren or true
+
+    print("reading "..instance.Name)
+    local out
+    local isScript = string.match(instance.ClassName, "Script") ~= nil
+    if isScript then
+        print(instance.Name.." appears to be a script")
+        out = instance.Source
+    else
+        out = module:ToTable(instance)
+        out.ClassName = instance.ClassName
+    end
 
     local newpath = outdir..instance.Name
 
-    local outfile = newpath..".json"
-    if #instance:GetChildren() > 0 and exportChildren then
+    local outext  = isScript and funcs:GetScriptExt(instance) or ".json"
+    local outfile = newpath..outext
+    local childrenCount = #instance:GetChildren()
+    if childrenCount > 0 and exportChildren then
+        print(string.format("%s has %d %s", instance.Name, childrenCount, childrenCount==1 and "child" or "children"))
+
         local childrenDir = newpath.."/"
         fs.mkdir(childrenDir)
 
@@ -36,10 +60,11 @@ function module:ExportInstance(instance, outdir, exportChildren)
             module:ExportInstance(child, childrenDir)
         end
         
-        outfile = childrenDir..instance.Name..".json"
+        outfile = childrenDir..instance.Name..outext
     end
 
-    fs.write(outfile, out, "json")
+    print(string.format("writing %s to %s", instance.Name, outfile))
+    fs.write(outfile, out, isScript and ".txt" or ".json")
 
     return out
 end

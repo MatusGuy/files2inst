@@ -253,6 +253,15 @@ module.PROP_EXCEPTIONS.BasePart = {
 }
 module.PROP_EXCEPTIONS.Part = module.PROP_EXCEPTIONS.BasePart
 
+module.SCRIPT_EXTS = {
+    Script = ".server.lua",
+    LocalScript = ".client.lua"
+}
+
+function module:GetScriptExt(script)
+    return (module.SCRIPT_EXTS[script.ClassName] or ".lua")
+end
+
 -- displayed when user tries to run "rbxmk run main.lua funcs"
 module.MSG = [[
 funcs is a module with various functions globaly used by files2inst commands.
