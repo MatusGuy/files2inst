@@ -13,6 +13,14 @@ module.JSON_FC = {
     EXPORT = {},
     IMPORT = {}
 }
+-- return as string if number is inf
+module.JSON_FC.EXPORT.number = function(n)
+    local stringed = tostring(n)
+    if string.match(stringed, "Inf") then
+        return stringed
+    end
+    return n
+end
 module.JSON_FC.EXPORT.Axes = function(a)
     return {
         _Type = "Axes",
@@ -33,9 +41,9 @@ end
 module.JSON_FC.EXPORT.Color3 = function(c)
     return {
         _Type = "Color3",
-        R = c.R,
-        B = c.B,
-        G = c.G
+        R = module.JSON_FC.EXPORT.number(c.R),
+        B = module.JSON_FC.EXPORT.number(c.B),
+        G = module.JSON_FC.EXPORT.number(c.G)
     }
 end
 module.JSON_FC.EXPORT.Instance = function(i)
@@ -44,9 +52,9 @@ end
 module.JSON_FC.EXPORT.Vector3 = function(v)
     return {
         _Type = "Vector3",
-        X = v.X,
-        Y = v.Y,
-        Z = v.Z
+        X = module.JSON_FC.EXPORT.number(v.X),
+        Y = module.JSON_FC.EXPORT.number(v.Y),
+        Z = module.JSON_FC.EXPORT.number(v.Z)
     }
 end
 
@@ -78,8 +86,8 @@ end
 module.JSON_FC.EXPORT.SequenceKeypoint = function(csk, _type)
     return {
         --_Type = _type,
-        Time = csk.Time,
-        Value = csk.Value
+        Time = module.JSON_FC.EXPORT.number(csk.Time),
+        Value = module.JSON_FC.EXPORT.number(csk.Value)
     }
 end
 module.JSON_FC.EXPORT.ColorSequence = function(cs, _type)
@@ -111,15 +119,15 @@ end
 module.JSON_FC.EXPORT.NumberRange = function(nr)
     return {
         _Type = "NumberRange",
-        Min = nr.Min,
-        Max = nr.Max
+        Min = module.JSON_FC.EXPORT.number(nr.Min),
+        Max = module.JSON_FC.EXPORT.number(nr.Max)
     }
 end
 module.JSON_FC.EXPORT.UDim = function(ud)
     return {
         _Type = "UDim",
-        Scale = ud.Scale,
-        Offset = ud.Offset
+        Scale = module.JSON_FC.EXPORT.number(ud.Scale),
+        Offset = module.JSON_FC.EXPORT.number(ud.Offset)
     }
 end
 module.JSON_FC.EXPORT.UDim2 = function(ud2)
@@ -132,8 +140,8 @@ end
 module.JSON_FC.EXPORT.Vector2 = function(v)
     return {
         _Type = "Vector2",
-        X = v.X,
-        Y = v.Y
+        X = module.JSON_FC.EXPORT.number(v.X),
+        Y = module.JSON_FC.EXPORT.number(v.Y)
     }
 end
 
@@ -144,7 +152,7 @@ end
 
 -- convert weirdtype to number, that's it
 module.JSON_FC.EXPORT.Intlike = function(il)
-    return tonumber(module.JSON_FC.EXPORT.WeirdType(il))
+    return module.JSON_FC.EXPORT.number(tonumber(module.JSON_FC.EXPORT.WeirdType(il)))
 end
 
 

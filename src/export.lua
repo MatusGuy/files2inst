@@ -6,7 +6,9 @@ function module:ToTable(instance)
     local out = {}
 
     for k,v in pairs(instance[sym.Properties]) do
-        if type(v) == "userdata" then
+        print(string.format("converting %s.%s: %s = %s", instance.Name, k, typeof(v), tostring(v)))
+
+        if type(v) == "userdata" or type(v) == "number" then
             local convert = funcs.JSON_FC.EXPORT[typeof(v)]
 
             if convert then
