@@ -60,7 +60,7 @@ function module:Import(dir, out)
     local content = fs.dir(dir)
 
     local parentjson = module:GetMainFile(dir)
-    local parent = module:LoadJsonInstance(parentjson)
+    local parent = module:LoadFileInstance(parentjson)
     for i, childpath in ipairs(content) do
         local pathname = dir..childpath.Name
 
@@ -70,7 +70,7 @@ function module:Import(dir, out)
             local instance
             if not childpath.IsDir then
                 print("get "..pathname)
-                instance = module:LoadJsonInstance(pathname)
+                instance = module:LoadFileInstance(pathname)
             else
                 instance = module:Import(pathname.."/", out)
             end
