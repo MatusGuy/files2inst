@@ -258,8 +258,37 @@ module.SCRIPT_EXTS = {
     LocalScript = ".client.lua"
 }
 
+function module:SwitchDict(dict)
+    local clone = {}
+    for k, v in pairs(dict) do
+        clone[v] = k
+    end
+    return clone
+end
+
 function module:GetScriptExt(script)
     return (module.SCRIPT_EXTS[script.ClassName] or ".lua")
+end
+
+function module:DoesPathExist(p)
+    return fs.stat(p)~=nil
+end
+
+function module:DoOneOfThePathsExist(paths)
+    for i, p in ipairs(paths) do
+        if module:DoesPathExist(p) then
+            return p
+        end
+    end
+    return nil
+end
+
+function module:StartsWith(str, start)
+    return str:sub(1, #start) == start
+ end
+ 
+function module:EndsWith(str, ending)
+    return ending == "" or str:sub(-#ending) == ending
 end
 
 -- displayed when user tries to run "rbxmk run main.lua funcs"

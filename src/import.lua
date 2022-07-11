@@ -1,14 +1,12 @@
 local module = {}
 local funcs = rbxmk.runFile(path.expand("$rsd").."/funcs.lua")
 
-function module:LoadJsonInstance(json)
-    local data = fs.read(json, "json")
-
+function module:LoadTableInstance(data)
     local instance = Instance.new(data.ClassName)
     for field, property in pairs(data) do
         if type(property) == "table" then
             local convert = funcs.JSON_FC.IMPORT[property._Type]
-            
+
             if convert then
                 instance[field] = convert(property)
             else
@@ -18,8 +16,29 @@ function module:LoadJsonInstance(json)
             instance[field] = property
         end
     end
-    
+
     return instance
+end
+
+function module:LoadJsonInstance(json)
+    return module:LoadTableInstance(fs.read(json, "json"))
+end
+
+function module:LoadFileInstance(p)
+    local ext = path.split(p, "ext") 
+    if ext == ".lua" then
+        local content = fs.read(p, "txt")
+
+        return module:LoadTableInstance({
+            ClassName = funcs:SwitchDict(funcs.SCRIPT_EXTS)[path.split(p, "fext")] or "ModuleScript",
+            Source = content,
+            Disabled = false
+        })
+    elseif ext == ".json" then
+        return module:LoadJsonInstance(p)
+    end
+
+    return nil
 end
 
 function module:GetFileWithSameName(dir,ext)
@@ -27,11 +46,12 @@ function module:GetFileWithSameName(dir,ext)
 end
 
 function module:GetMainFile(dir)
-    local resp = dir..path.split(dir, "stem")..".lua"
-    if not fs.stat(resp) then
-        resp = dir..path.split(dir, "base")..".json"
-    end
-    return resp
+    return funcs:DoOneOfThePathsExist({
+        module:GetFileWithSameName(dir, ".lua"),
+        module:GetFileWithSameName(dir, ".server.lua"),
+        module:GetFileWithSameName(dir, ".client.lua"),
+        module:GetFileWithSameName(dir, ".json")
+    })
 end
 
 function module:Import(dir, out)
@@ -39,7 +59,7 @@ function module:Import(dir, out)
 
     local content = fs.dir(dir)
 
-    local parentjson = dir..path.split(dir, "base")..".json"
+    local parentjson = module:GetMainFile(dir)
     local parent = module:LoadJsonInstance(parentjson)
     for i, childpath in ipairs(content) do
         local pathname = dir..childpath.Name
@@ -59,7 +79,7 @@ function module:Import(dir, out)
     end
 
     fs.write(out, parent, "rbxmx")
-    
+
     return parent
 end
 
